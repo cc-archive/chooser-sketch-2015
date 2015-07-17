@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Creative Commons License Chooser</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+
+    <!-- Choser theme -->
+    <link rel="stylesheet" href="css/license-chooser.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+  </head>
+  <body>
+
+    <div class="container" role="main">
+
+      <div class="video-container panel">
+        <img class="background-video" src="http://placekitten.com/g/800/600">
+        <div class="credits">
+          Cute kitten from placekitten.com
+        </div>
+        <div class="video-overlay jumbotron">
+          <h1>Let's choose a license!</h1>
+          <p>Or alternatively you could just <a href="#">dedicate something to the Public Domain.</a></p>
+          <p>We also have tools for <a href="#">bulk registration of works.</a></p>
+        </div>
+      </div>
+
+      <p>Have <strike>some sort of well to drop work to license/</strike>
+      url field to pull in iframe of work to license,
+        pull urls/format/title etc from.</p>
+      <p><strike>Show/hide hidden helper text under title at top of section (bootstrap),</strike> protect after first line from screen reader so people don't get bored.</p>
+      <p><strike>Add metadata to file option if work uploaded, then download or upload to IA.</strike></p>
+
+      <div class="panel panel-default" id="ccid-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Got a CCID? It makes this easier and helps track your work!
+          <a href="#" id="ccid-what">(What's CCID?)</a>
+          <p class="help-block" id="ccid-help">
+            You can only license work you hold the rights to etc. We have a page about this or there's the FAQ.
+          </p>
+        </div>
+        <div class="panel-body">
+          <p></p>
+          <button type="button" class="btn btn-primary">Log In With CCID</button>
+          <button type="button" class="btn btn-info">I don't have a CCID, sign me up!</button>
+          <button type="button" class="btn btn-default">No thanks, don't log me in</button>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="upload-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Upload the work to be licensed?
+          <a href="#" id="upload-what">(What does this do?)</a>
+          <p class="help-block" id="upload-help">
+            If you upload the file we can work out its format,
+            add metadata to it and/or store it for you.
+            You don't need to do this, though, you can skip it and enter a URL
+            for your work instead.
+          </p>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <div class="list-group-item">
+              <b>Select a file to upload</b>
+            <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+              <div class="form-inline">
+                <div class="form-group">
+                  <input type="file" name="file" id="upload-file">
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary">Upload files</button>
+              </div>
+            </form>
+            </div>
+            <div class="list-group-item">
+              <b>Or just drag and drop a file here</b>
+              <div class="well well-lg file-well" id="file-well">
+                <p>Drag and drop a file into this area to upload!</p>
+              </div>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="author-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Is this your original work?
+          <a href="#" id="original-what">(Why is this important?)</a>
+          <p class="help-block" id="original-help">
+            You can only license work you hold the rights to etc. We have a
+            page about this or there's the FAQ.
+          </p>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <a href="javascript:void(0)"
+               class="list-group-item original-work-item">Yes.</a>
+          <a href="javascript:void(0)"
+             class="list-group-item original-work-item">No, but it's derived
+            from a work under a license that allows remixing.</a>
+          <a href="javascript:void(0)"
+             class="list-group-item original-work-item">No, but I have
+            sufficient rights to license it.</a>
+          <a href="javascript:void(0)"
+             class="list-group-item original-work-item">No, but I am
+            registering it on behalf of an institution.</a>
+          <a href="javascript:void(0)"
+             class="list-group-item original-work-item">No, I just found it on
+            the Internet.</a>
+          <a href="javascript:void(0)"
+             class="list-group-item original-work-item">No, a friend gave it to
+            me.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="sharing-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Allow adaptations of your work to be shared.
+          <a href="#" id="sa-what">(What's sharing an adaptation?)</a>
+          <p class="help-block" id="sa-help">
+            Sharing is caring.
+          </p>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <a href="javascript:void(0)" id="share-yes"
+               class="list-group-item sa-item active">Yes, always.</a>
+            <a href="javascript:void(0)" id="share-alike"
+               class="list-group-item sa-item">Yes, as long as people share
+              alike.</a>
+            <a href="javascript:void(0)" id="share-no"
+               class="list-group-item sa-item">No, only under Fair Use.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="commercial-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Prevent some commercial uses of your work.
+          <a href="#" id="nc-what">(What's commercial use?)
+          <p class="help-block" id="nc-help">
+            Use commercially.
+          </p>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <a href="javascript:void(0)" id="commercial-yes"
+               class="list-group-item nc-item active">No.</a>
+            <a href="javascript:void(0)" id="commercial-no"
+               class="list-group-item nc-item">Yes, unless it's Fair Use</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="license-panel">
+        <div class="panel-heading chooser-panel-heading">
+          The license.
+          <a href="#" id="license-what">(What are these licenses?)</a>
+          <p class="help-block" id="license-help">
+            A spectrum of rights. Watch this video for more details!
+          </p>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <a href="javascript:void(0)"
+               class="list-group-item license-choice active"
+               id="cc-by">
+              <img src="img/by-88x31.png">
+              Creative Commons Attribution 4.0 International License</a>
+            <a href="javascript:void(0)" class="list-group-item license-choice"
+               id="cc-by-sa">
+              <img src="img/by-sa-88x31.png">
+              Creative Commons Attribution-ShareAlike 4.0 International
+              License</a>
+            <a href="javascript:void(0)" class="list-group-item license-choice"
+               id="cc-by-nc">
+              <img src="img/by-nc-88x31.png">
+              Creative Commons Attribution-NonCommercial 4.0 International
+              License</a>
+            <a href="javascript:void(0)" class="list-group-item license-choice"
+               id="cc-by-nd">
+              <img src="img/by-nd-88x31.png"> Creative Commons
+              Attribution-NoDerivatives 4.0 International License</a>
+            <a href="javascript:void(0)" class="list-group-item license-choice"
+               id="cc-by-nc-sa">
+              <img src="img/by-nc-sa-88x31.png"> Creative Commons
+              Attribution-NonCommercial-ShareAlike 4.0 International License</a>
+            <a href="javascript:void(0)" class="list-group-item license-choice"
+               id="cc-by-nc-nd">
+              <img src="img/by-nc-nd-88x31.png"> Creative Commons
+              Attribution-NonCommercial-NoDerivatives 4.0 International
+              License</a>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="license-freedom" id="license-free">
+                <img id="free-or-not-icon" src="img/fc_approved_tiny.png">
+                This is a <a href="#">Free Culture License</a>. Free culture licenses help build a true cultural commons that anyone can participate in.
+              </div>
+              <div class="license-freedom" id="license-nonfree">
+                <img id="free-or-not-icon" src="img/fc_dubious_hover.png">
+                This is not a <a href="#">Free Culture License</a>. Choosing a free culture license would help build a true cultural commons that anyone can participate in.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="attribution-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Attribute your work in more detail.
+          <a href="#" id="details-what">(What is attribution?)</a>
+          <p class="help-block" id="details-help">
+            Credit for your work, and help in identifying a work's licensing.
+          </p>
+        </div>
+        <div class="panel-body">
+          <label>Title of work</label><br>
+          <input type="text" id="work-name"><br>
+          <label>Attribute work to name</label><br>
+          <input type="text" id="attribution-name"><br>
+          <label>Attribute work to URL</label><br>
+          <input type="text" id="attribution-url"><br>
+          <label>Work this was derived from URL</label><br>
+          <input type="text" id="derived-work-url"><br>
+          <label>More permissions URL</label><br>
+          <input type="text" id="more-permissions-url"><br>
+          <label>Format of work</label><br>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button"
+                    id="work-format-button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+              Choose (or leave unspecified)
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="work-format-button">
+              <li class="active"><a href="javascript:void(0)"
+                     class="set-work-format">Other / Multiple formats</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Audio</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Video</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Image</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Text</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Dataset</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-work-format">Interactive</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default" id="metadata-panel">
+        <div class="panel-heading chooser-panel-heading">
+          Mark your work to help build the commons.
+          <a href="#" id="metadata-what">(What is marking?)</a>
+          <p class="help-block" id="metadata-help">
+            Help other people find and use your work!
+          </p>
+        </div>
+        <div class="panel-body">
+          <label>License metadata</label><br>
+          <textarea id="metadata-text" readonly="readonly"></textarea><br>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button"
+                    id="metadata-format-button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+              HTML+RDFa
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"
+                aria-labelledby="metadata-format-button">
+              <li class="active"><a href="javascript:void(0)"
+                                    class="set-metadata-format">HTML+RDFa</a>
+              </li>
+              <li><a href="javascript:void(0)"
+                     class="set-metadata-format">XMP</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-metadata-format">JSON-LD</a></li>
+              <li><a href="javascript:void(0)"
+                     class="set-metadata-format">Plain text</a></li>
+            </ul>
+          </div>
+          <br>
+          <button type="button" class="btn btn-info">
+            Copy metadata to the clipboard.</button>
+          <br><br>
+          <button type="button" class="btn btn-info">
+            Add metadata to file and upload to archive.org.</button>
+          <br><br>
+          <button type="button" class="btn btn-info">
+            Add metadata to file and download.</button>
+          <br><br>
+          <button type="button" class="btn btn-info">
+            See metadata under my CCID account.</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="js/license-chooser.js"></script>
+  </body>
+</html>

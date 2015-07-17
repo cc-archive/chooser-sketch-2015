@@ -1,0 +1,52 @@
+.video-container {
+    position:relative;
+    overflow:hidden;
+    height: 300px;
+    text-shadow: 2px 2px 2px #000000;
+    /* z-index helps with cropping */
+    z-index: 3000;
+    border-radius: 4px;
+}
+
+.background-video {
+    position: absolute;
+    width:100%;
+    top: 50%;
+    margin-top: -25%;
+    z-index: 1000;
+}
+
+.video-overlay {
+    position:absolute;
+    color:white;
+    background: none !important;
+    z-index: 2000;
+}
+
+.credits {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 100%;
+    text-align: right;
+    color: white;
+    z-index: 2000;
+}
+
+.chooser-panel-heading {
+    font-weight: 700;
+}
+
+.file-well {
+  height: 200px;
+  border-width: 2px;
+  border-style: dashed;
+  text-align: center;
+  line-height: 128px;
+  margin-top: 4px;
+}
+
+.file-well .active {
+  color: #222;
+  border-color: #222;
+}
